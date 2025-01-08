@@ -8,7 +8,7 @@ jobs:  # we are creating jobs to perform steps
   deploy:
     runs-on: ubuntu-latest # from azure pool 
     
-    steps: # steps to setup cdk and run code 
+    steps: # steps to setup cdk and run cod
     - name: setup node.js 20 version
       uses: actions/setup-node@v3
       with:
