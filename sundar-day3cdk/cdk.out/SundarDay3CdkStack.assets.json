@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "4e8d761c9f2731cc4cb8d724ebfe86168af17563d3b8efb0e505ef33bd88167f": {
+      "source": {
+        "path": "SundarDay3CdkStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "992382386705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-992382386705-us-east-1",
+          "objectKey": "4e8d761c9f2731cc4cb8d724ebfe86168af17563d3b8efb0e505ef33bd88167f.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-file-publishing-role-992382386705-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
