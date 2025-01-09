@@ -1,0 +1,207 @@
+{
+ "Resources": {
+  "sundarvm1InstanceSecurityGroup2AC55DC1": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "SundarDay4ec2all/sundarvm1/InstanceSecurityGroup",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "sundar-linux-vm-stack1"
+     }
+    ],
+    "VpcId": "vpc-07eede624774fec02"
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4ec2all/sundarvm1/InstanceSecurityGroup/Resource"
+   }
+  },
+  "sundarvm1InstanceRole44CA5D15": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "sundar-linux-vm-stack1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4ec2all/sundarvm1/InstanceRole/Resource"
+   }
+  },
+  "sundarvm1InstanceProfile3BAFEAF4": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "sundarvm1InstanceRole44CA5D15"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4ec2all/sundarvm1/InstanceProfile"
+   }
+  },
+  "sundarvm1D4001271": {
+   "Type": "AWS::EC2::Instance",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "IamInstanceProfile": {
+     "Ref": "sundarvm1InstanceProfile3BAFEAF4"
+    },
+    "ImageId": {
+     "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+    },
+    "InstanceType": "t2.micro",
+    "KeyName": "splunk-key",
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "sundarvm1InstanceSecurityGroup2AC55DC1",
+       "GroupId"
+      ]
+     },
+     {
+      "Fn::GetAtt": [
+       "sundarSecurityGroup1DD6DD7A",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetId": "subnet-03d450bc480b2203a",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "sundar-linux-vm-stack1"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": "#!/bin/bash"
+    }
+   },
+   "DependsOn": [
+    "sundarvm1InstanceRole44CA5D15"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4ec2all/sundarvm1/Resource"
+   }
+  },
+  "sundarSecurityGroup1DD6DD7A": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "SundarDay4ec2all/sundarSecurityGroup",
+    "GroupName": "sundar-security-group",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow HTTPS traffic",
+      "FromPort": 443,
+      "IpProtocol": "tcp",
+      "ToPort": 443
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow SSH traffic",
+      "FromPort": 22,
+      "IpProtocol": "tcp",
+      "ToPort": 22
+     }
+    ],
+    "VpcId": "vpc-07eede624774fec02"
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4ec2all/sundarSecurityGroup/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WOzQrCMBCEn8V7urZF9AE8iCdL+wCyplvY/iQl2Vgk5N2lak+ehvlmBqaE4nSAYoeLz3Q7ZCM/IDaCelA1eRucJoWLv0fSJcSr8YJGk2pIB8fyujgbZnXuzB/YqkkxThBrO9KKN93iytmOR0pphRU6nEjIreYWZA7y2fyOJGVsS9D7/bPMoThCvus9c+aCEZ4I6q++AfGJptnTAAAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4ec2all/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Outputs": {
+  "sundarInstanceID": {
+   "Description": "this will print instance id",
+   "Value": {
+    "Ref": "sundarvm1D4001271"
+   }
+  },
+  "sundarvmpublicdns": {
+   "Value": {
+    "Fn::GetAtt": [
+     "sundarvm1D4001271",
+     "PublicDnsName"
+    ]
+   }
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

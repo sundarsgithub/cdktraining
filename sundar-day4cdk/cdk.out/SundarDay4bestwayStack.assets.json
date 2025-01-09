@@ -1,0 +1,34 @@
+{
+  "version": "39.0.0",
+  "files": {
+    "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6": {
+      "source": {
+        "path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "992382386705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-992382386705-us-east-1",
+          "objectKey": "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-file-publishing-role-992382386705-us-east-1"
+        }
+      }
+    },
+    "6c34e2608772314d8550da2c15d24ffc9b4873b1fb38611e0303b91e21800bb3": {
+      "source": {
+        "path": "SundarDay4bestwayStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "992382386705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-992382386705-us-east-1",
+          "objectKey": "6c34e2608772314d8550da2c15d24ffc9b4873b1fb38611e0303b91e21800bb3.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-file-publishing-role-992382386705-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

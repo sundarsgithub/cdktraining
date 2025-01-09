@@ -1,0 +1,595 @@
+{
+ "Resources": {
+  "SundarBucket150361498": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "sundar-s3-bucket-02",
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket1/Resource"
+   }
+  },
+  "SundarBucket1Policy29CE2F9C": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SundarBucket150361498"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SundarBucket150361498",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SundarBucket150361498",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket1/Policy/Resource"
+   }
+  },
+  "SundarBucket1AutoDeleteObjectsCustomResourceED99738F": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SundarBucket150361498"
+    }
+   },
+   "DependsOn": [
+    "SundarBucket1Policy29CE2F9C"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket1/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-992382386705-us-east-1",
+     "S3Key": "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs20.x",
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Lambda function for auto-deleting objects in ",
+       {
+        "Ref": "SundarBucket150361498"
+       },
+       " S3 bucket."
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+    "aws:asset:path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
+    "aws:asset:property": "Code"
+   }
+  },
+  "SundarBucket2804BEE8C": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "sundar-s3-bucket-03",
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket2/Resource"
+   }
+  },
+  "SundarBucket2Policy5CB45E39": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SundarBucket2804BEE8C"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SundarBucket2804BEE8C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SundarBucket2804BEE8C",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket2/Policy/Resource"
+   }
+  },
+  "SundarBucket2AutoDeleteObjectsCustomResource2BC3976D": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SundarBucket2804BEE8C"
+    }
+   },
+   "DependsOn": [
+    "SundarBucket2Policy5CB45E39"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket2/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SundarBucket3FD4C853B": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "sundar-s3-bucket-04",
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket3/Resource"
+   }
+  },
+  "SundarBucket3Policy3F25B07F": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SundarBucket3FD4C853B"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SundarBucket3FD4C853B",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SundarBucket3FD4C853B",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket3/Policy/Resource"
+   }
+  },
+  "SundarBucket3AutoDeleteObjectsCustomResource0C31496A": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SundarBucket3FD4C853B"
+    }
+   },
+   "DependsOn": [
+    "SundarBucket3Policy3F25B07F"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket3/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SundarBucket46E72BC00": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "sundar-s3-bucket-05",
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket4/Resource"
+   }
+  },
+  "SundarBucket4Policy68399F83": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SundarBucket46E72BC00"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SundarBucket46E72BC00",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SundarBucket46E72BC00",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket4/Policy/Resource"
+   }
+  },
+  "SundarBucket4AutoDeleteObjectsCustomResource288088E8": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SundarBucket46E72BC00"
+    }
+   },
+   "DependsOn": [
+    "SundarBucket4Policy68399F83"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket4/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SundarBucket537963B34": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket5/Resource"
+   }
+  },
+  "SundarBucket5Policy09678276": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SundarBucket537963B34"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SundarBucket537963B34",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SundarBucket537963B34",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket5/Policy/Resource"
+   }
+  },
+  "SundarBucket5AutoDeleteObjectsCustomResource4BCFC6F7": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SundarBucket537963B34"
+    }
+   },
+   "DependsOn": [
+    "SundarBucket5Policy09678276"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/SundarBucket5/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WJWwqDMBBF1+J/MlVb2u/qBkQXUNJkKuMjgUyiFHHvpaQg/Trn3lNCcbtAkamVpTajnOgJWxeUHoVa+cFn2KqoRwyiftmfJTRuIv0+7rR3UUcObm6RXfQav/3wv9R4t5BBXylGcWfG0AXVk+13YZ1BGPi0lDkUV8izgYmkjzbQjNAmfgBM5d6wuwAAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "SundarDay4bestwayStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

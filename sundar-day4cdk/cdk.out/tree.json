@@ -1,0 +1,1055 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "SundarDay4bestwayStack": {
+        "id": "SundarDay4bestwayStack",
+        "path": "SundarDay4bestwayStack",
+        "children": {
+          "SundarBucket1": {
+            "id": "SundarBucket1",
+            "path": "SundarDay4bestwayStack/SundarBucket1",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4bestwayStack/SundarBucket1/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "sundar-s3-bucket-02",
+                    "tags": [
+                      {
+                        "key": "aws-cdk:auto-delete-objects",
+                        "value": "true"
+                      }
+                    ],
+                    "versioningConfiguration": {
+                      "status": "Enabled"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                  "version": "2.174.1"
+                }
+              },
+              "Policy": {
+                "id": "Policy",
+                "path": "SundarDay4bestwayStack/SundarBucket1/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4bestwayStack/SundarBucket1/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "bucket": {
+                          "Ref": "SundarBucket150361498"
+                        },
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "s3:DeleteObject*",
+                                "s3:GetBucket*",
+                                "s3:List*",
+                                "s3:PutBucketPolicy"
+                              ],
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::GetAtt": [
+                                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                    "Arn"
+                                  ]
+                                }
+                              },
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "SundarBucket150361498",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "SundarBucket150361498",
+                                          "Arn"
+                                        ]
+                                      },
+                                      "/*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                  "version": "2.174.1"
+                }
+              },
+              "AutoDeleteObjectsCustomResource": {
+                "id": "AutoDeleteObjectsCustomResource",
+                "path": "SundarDay4bestwayStack/SundarBucket1/AutoDeleteObjectsCustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "SundarDay4bestwayStack/SundarBucket1/AutoDeleteObjectsCustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3.Bucket",
+              "version": "2.174.1"
+            }
+          },
+          "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
+            "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "path": "SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "children": {
+              "Staging": {
+                "id": "Staging",
+                "path": "SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.AssetStaging",
+                  "version": "2.174.1"
+                }
+              },
+              "Role": {
+                "id": "Role",
+                "path": "SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.174.1"
+                }
+              },
+              "Handler": {
+                "id": "Handler",
+                "path": "SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CustomResourceProviderBase",
+              "version": "2.174.1"
+            }
+          },
+          "SundarBucket2": {
+            "id": "SundarBucket2",
+            "path": "SundarDay4bestwayStack/SundarBucket2",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4bestwayStack/SundarBucket2/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "sundar-s3-bucket-03",
+                    "tags": [
+                      {
+                        "key": "aws-cdk:auto-delete-objects",
+                        "value": "true"
+                      }
+                    ],
+                    "versioningConfiguration": {
+                      "status": "Enabled"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                  "version": "2.174.1"
+                }
+              },
+              "Policy": {
+                "id": "Policy",
+                "path": "SundarDay4bestwayStack/SundarBucket2/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4bestwayStack/SundarBucket2/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "bucket": {
+                          "Ref": "SundarBucket2804BEE8C"
+                        },
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "s3:DeleteObject*",
+                                "s3:GetBucket*",
+                                "s3:List*",
+                                "s3:PutBucketPolicy"
+                              ],
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::GetAtt": [
+                                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                    "Arn"
+                                  ]
+                                }
+                              },
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "SundarBucket2804BEE8C",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "SundarBucket2804BEE8C",
+                                          "Arn"
+                                        ]
+                                      },
+                                      "/*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                  "version": "2.174.1"
+                }
+              },
+              "AutoDeleteObjectsCustomResource": {
+                "id": "AutoDeleteObjectsCustomResource",
+                "path": "SundarDay4bestwayStack/SundarBucket2/AutoDeleteObjectsCustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "SundarDay4bestwayStack/SundarBucket2/AutoDeleteObjectsCustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3.Bucket",
+              "version": "2.174.1"
+            }
+          },
+          "SundarBucket3": {
+            "id": "SundarBucket3",
+            "path": "SundarDay4bestwayStack/SundarBucket3",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4bestwayStack/SundarBucket3/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "sundar-s3-bucket-04",
+                    "tags": [
+                      {
+                        "key": "aws-cdk:auto-delete-objects",
+                        "value": "true"
+                      }
+                    ],
+                    "versioningConfiguration": {
+                      "status": "Enabled"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                  "version": "2.174.1"
+                }
+              },
+              "Policy": {
+                "id": "Policy",
+                "path": "SundarDay4bestwayStack/SundarBucket3/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4bestwayStack/SundarBucket3/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "bucket": {
+                          "Ref": "SundarBucket3FD4C853B"
+                        },
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "s3:DeleteObject*",
+                                "s3:GetBucket*",
+                                "s3:List*",
+                                "s3:PutBucketPolicy"
+                              ],
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::GetAtt": [
+                                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                    "Arn"
+                                  ]
+                                }
+                              },
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "SundarBucket3FD4C853B",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "SundarBucket3FD4C853B",
+                                          "Arn"
+                                        ]
+                                      },
+                                      "/*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                  "version": "2.174.1"
+                }
+              },
+              "AutoDeleteObjectsCustomResource": {
+                "id": "AutoDeleteObjectsCustomResource",
+                "path": "SundarDay4bestwayStack/SundarBucket3/AutoDeleteObjectsCustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "SundarDay4bestwayStack/SundarBucket3/AutoDeleteObjectsCustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3.Bucket",
+              "version": "2.174.1"
+            }
+          },
+          "SundarBucket4": {
+            "id": "SundarBucket4",
+            "path": "SundarDay4bestwayStack/SundarBucket4",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4bestwayStack/SundarBucket4/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "sundar-s3-bucket-05",
+                    "tags": [
+                      {
+                        "key": "aws-cdk:auto-delete-objects",
+                        "value": "true"
+                      }
+                    ],
+                    "versioningConfiguration": {
+                      "status": "Enabled"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                  "version": "2.174.1"
+                }
+              },
+              "Policy": {
+                "id": "Policy",
+                "path": "SundarDay4bestwayStack/SundarBucket4/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4bestwayStack/SundarBucket4/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "bucket": {
+                          "Ref": "SundarBucket46E72BC00"
+                        },
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "s3:DeleteObject*",
+                                "s3:GetBucket*",
+                                "s3:List*",
+                                "s3:PutBucketPolicy"
+                              ],
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::GetAtt": [
+                                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                    "Arn"
+                                  ]
+                                }
+                              },
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "SundarBucket46E72BC00",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "SundarBucket46E72BC00",
+                                          "Arn"
+                                        ]
+                                      },
+                                      "/*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                  "version": "2.174.1"
+                }
+              },
+              "AutoDeleteObjectsCustomResource": {
+                "id": "AutoDeleteObjectsCustomResource",
+                "path": "SundarDay4bestwayStack/SundarBucket4/AutoDeleteObjectsCustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "SundarDay4bestwayStack/SundarBucket4/AutoDeleteObjectsCustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3.Bucket",
+              "version": "2.174.1"
+            }
+          },
+          "SundarBucket5": {
+            "id": "SundarBucket5",
+            "path": "SundarDay4bestwayStack/SundarBucket5",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4bestwayStack/SundarBucket5/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "tags": [
+                      {
+                        "key": "aws-cdk:auto-delete-objects",
+                        "value": "true"
+                      }
+                    ],
+                    "versioningConfiguration": {
+                      "status": "Enabled"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                  "version": "2.174.1"
+                }
+              },
+              "Policy": {
+                "id": "Policy",
+                "path": "SundarDay4bestwayStack/SundarBucket5/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4bestwayStack/SundarBucket5/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "bucket": {
+                          "Ref": "SundarBucket537963B34"
+                        },
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "s3:DeleteObject*",
+                                "s3:GetBucket*",
+                                "s3:List*",
+                                "s3:PutBucketPolicy"
+                              ],
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::GetAtt": [
+                                    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                    "Arn"
+                                  ]
+                                }
+                              },
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "SundarBucket537963B34",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "SundarBucket537963B34",
+                                          "Arn"
+                                        ]
+                                      },
+                                      "/*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                  "version": "2.174.1"
+                }
+              },
+              "AutoDeleteObjectsCustomResource": {
+                "id": "AutoDeleteObjectsCustomResource",
+                "path": "SundarDay4bestwayStack/SundarBucket5/AutoDeleteObjectsCustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "SundarDay4bestwayStack/SundarBucket5/AutoDeleteObjectsCustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3.Bucket",
+              "version": "2.174.1"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "SundarDay4bestwayStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "SundarDay4bestwayStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "SundarDay4bestwayStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.174.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "SundarDay4bestwayStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.174.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.174.1"
+        }
+      },
+      "SundarDay4ec2all": {
+        "id": "SundarDay4ec2all",
+        "path": "SundarDay4ec2all",
+        "children": {
+          "sundarvpc": {
+            "id": "sundarvpc",
+            "path": "SundarDay4ec2all/sundarvpc",
+            "children": {
+              "PublicSubnet1": {
+                "id": "PublicSubnet1",
+                "path": "SundarDay4ec2all/sundarvpc/PublicSubnet1",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.174.1"
+                }
+              },
+              "PublicSubnet2": {
+                "id": "PublicSubnet2",
+                "path": "SundarDay4ec2all/sundarvpc/PublicSubnet2",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.174.1"
+                }
+              },
+              "PublicSubnet3": {
+                "id": "PublicSubnet3",
+                "path": "SundarDay4ec2all/sundarvpc/PublicSubnet3",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.174.1"
+                }
+              },
+              "PublicSubnet4": {
+                "id": "PublicSubnet4",
+                "path": "SundarDay4ec2all/sundarvpc/PublicSubnet4",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.174.1"
+                }
+              },
+              "PublicSubnet5": {
+                "id": "PublicSubnet5",
+                "path": "SundarDay4ec2all/sundarvpc/PublicSubnet5",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.174.1"
+                }
+              },
+              "PublicSubnet6": {
+                "id": "PublicSubnet6",
+                "path": "SundarDay4ec2all/sundarvpc/PublicSubnet6",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.174.1"
+            }
+          },
+          "sundarkey": {
+            "id": "sundarkey",
+            "path": "SundarDay4ec2all/sundarkey",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.174.1"
+            }
+          },
+          "sundarvm1": {
+            "id": "sundarvm1",
+            "path": "SundarDay4ec2all/sundarvm1",
+            "children": {
+              "InstanceSecurityGroup": {
+                "id": "InstanceSecurityGroup",
+                "path": "SundarDay4ec2all/sundarvm1/InstanceSecurityGroup",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4ec2all/sundarvm1/InstanceSecurityGroup/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "groupDescription": "SundarDay4ec2all/sundarvm1/InstanceSecurityGroup",
+                        "securityGroupEgress": [
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "description": "Allow all outbound traffic by default",
+                            "ipProtocol": "-1"
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "sundar-linux-vm-stack1"
+                          }
+                        ],
+                        "vpcId": "vpc-07eede624774fec02"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+                  "version": "2.174.1"
+                }
+              },
+              "InstanceRole": {
+                "id": "InstanceRole",
+                "path": "SundarDay4ec2all/sundarvm1/InstanceRole",
+                "children": {
+                  "ImportInstanceRole": {
+                    "id": "ImportInstanceRole",
+                    "path": "SundarDay4ec2all/sundarvm1/InstanceRole/ImportInstanceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.174.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SundarDay4ec2all/sundarvm1/InstanceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "ec2.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "sundar-linux-vm-stack1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.174.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.174.1"
+                }
+              },
+              "InstanceProfile": {
+                "id": "InstanceProfile",
+                "path": "SundarDay4ec2all/sundarvm1/InstanceProfile",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::InstanceProfile",
+                  "aws:cdk:cloudformation:props": {
+                    "roles": [
+                      {
+                        "Ref": "sundarvm1InstanceRole44CA5D15"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnInstanceProfile",
+                  "version": "2.174.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4ec2all/sundarvm1/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::Instance",
+                  "aws:cdk:cloudformation:props": {
+                    "availabilityZone": "us-east-1a",
+                    "iamInstanceProfile": {
+                      "Ref": "sundarvm1InstanceProfile3BAFEAF4"
+                    },
+                    "imageId": {
+                      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+                    },
+                    "instanceType": "t2.micro",
+                    "keyName": "splunk-key",
+                    "securityGroupIds": [
+                      {
+                        "Fn::GetAtt": [
+                          "sundarvm1InstanceSecurityGroup2AC55DC1",
+                          "GroupId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "sundarSecurityGroup1DD6DD7A",
+                          "GroupId"
+                        ]
+                      }
+                    ],
+                    "subnetId": "subnet-03d450bc480b2203a",
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "sundar-linux-vm-stack1"
+                      }
+                    ],
+                    "userData": {
+                      "Fn::Base64": "#!/bin/bash"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ec2.CfnInstance",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_ec2.Instance",
+              "version": "2.174.1"
+            }
+          },
+          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
+            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "SundarDay4ec2all/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.174.1"
+            }
+          },
+          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118": {
+            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "SundarDay4ec2all/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.174.1"
+            }
+          },
+          "sundarInstanceID": {
+            "id": "sundarInstanceID",
+            "path": "SundarDay4ec2all/sundarInstanceID",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.174.1"
+            }
+          },
+          "sundarvmpublicdns": {
+            "id": "sundarvmpublicdns",
+            "path": "SundarDay4ec2all/sundarvmpublicdns",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.174.1"
+            }
+          },
+          "sundarSecurityGroup": {
+            "id": "sundarSecurityGroup",
+            "path": "SundarDay4ec2all/sundarSecurityGroup",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SundarDay4ec2all/sundarSecurityGroup/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+                  "aws:cdk:cloudformation:props": {
+                    "groupDescription": "SundarDay4ec2all/sundarSecurityGroup",
+                    "groupName": "sundar-security-group",
+                    "securityGroupEgress": [
+                      {
+                        "cidrIp": "0.0.0.0/0",
+                        "description": "Allow all outbound traffic by default",
+                        "ipProtocol": "-1"
+                      }
+                    ],
+                    "securityGroupIngress": [
+                      {
+                        "cidrIp": "0.0.0.0/0",
+                        "ipProtocol": "tcp",
+                        "fromPort": 443,
+                        "toPort": 443,
+                        "description": "Allow HTTPS traffic"
+                      },
+                      {
+                        "cidrIp": "0.0.0.0/0",
+                        "ipProtocol": "tcp",
+                        "fromPort": 22,
+                        "toPort": 22,
+                        "description": "Allow SSH traffic"
+                      }
+                    ],
+                    "vpcId": "vpc-07eede624774fec02"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+              "version": "2.174.1"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "SundarDay4ec2all/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "SundarDay4ec2all/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.174.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "SundarDay4ec2all/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.174.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "SundarDay4ec2all/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.174.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.174.1"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.4.2"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.174.1"
+    }
+  }
+}

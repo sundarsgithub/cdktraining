@@ -1,0 +1,20 @@
+{
+  "version": "39.0.0",
+  "files": {
+    "0c81599b1eccc8cd6827811e3dcce80511416b4dd5a1e45edb7973eabbce2a1a": {
+      "source": {
+        "path": "SundarDay4ec2all.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "992382386705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-992382386705-us-east-1",
+          "objectKey": "0c81599b1eccc8cd6827811e3dcce80511416b4dd5a1e45edb7973eabbce2a1a.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-file-publishing-role-992382386705-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

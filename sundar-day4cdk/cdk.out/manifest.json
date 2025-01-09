@@ -1,0 +1,275 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "SundarDay4bestwayStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "SundarDay4bestwayStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "SundarDay4bestwayStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://992382386705/us-east-1",
+      "properties": {
+        "templateFile": "SundarDay4bestwayStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-deploy-role-992382386705-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-cfn-exec-role-992382386705-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-992382386705-us-east-1/6c34e2608772314d8550da2c15d24ffc9b4873b1fb38611e0303b91e21800bb3.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "SundarDay4bestwayStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-lookup-role-992382386705-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "SundarDay4bestwayStack.assets"
+      ],
+      "metadata": {
+        "/SundarDay4bestwayStack/SundarBucket1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket150361498"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket1/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket1Policy29CE2F9C"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket1/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket1AutoDeleteObjectsCustomResourceED99738F"
+          }
+        ],
+        "/SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/SundarDay4bestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket2804BEE8C"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket2/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket2Policy5CB45E39"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket2/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket2AutoDeleteObjectsCustomResource2BC3976D"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket3/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket3FD4C853B"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket3/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket3Policy3F25B07F"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket3/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket3AutoDeleteObjectsCustomResource0C31496A"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket4/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket46E72BC00"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket4/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket4Policy68399F83"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket4/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket4AutoDeleteObjectsCustomResource288088E8"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket5/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket537963B34"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket5/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket5Policy09678276"
+          }
+        ],
+        "/SundarDay4bestwayStack/SundarBucket5/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SundarBucket5AutoDeleteObjectsCustomResource4BCFC6F7"
+          }
+        ],
+        "/SundarDay4bestwayStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/SundarDay4bestwayStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/SundarDay4bestwayStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "SundarDay4bestwayStack"
+    },
+    "SundarDay4ec2all.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "SundarDay4ec2all.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "SundarDay4ec2all": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://992382386705/us-east-1",
+      "properties": {
+        "templateFile": "SundarDay4ec2all.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-deploy-role-992382386705-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-cfn-exec-role-992382386705-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-992382386705-us-east-1/0c81599b1eccc8cd6827811e3dcce80511416b4dd5a1e45edb7973eabbce2a1a.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "SundarDay4ec2all.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-lookup-role-992382386705-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "SundarDay4ec2all.assets"
+      ],
+      "metadata": {
+        "/SundarDay4ec2all/sundarvm1/InstanceSecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarvm1InstanceSecurityGroup2AC55DC1"
+          }
+        ],
+        "/SundarDay4ec2all/sundarvm1/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarvm1InstanceRole44CA5D15"
+          }
+        ],
+        "/SundarDay4ec2all/sundarvm1/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarvm1InstanceProfile3BAFEAF4"
+          }
+        ],
+        "/SundarDay4ec2all/sundarvm1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarvm1D4001271"
+          }
+        ],
+        "/SundarDay4ec2all/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/SundarDay4ec2all/sundarInstanceID": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarInstanceID"
+          }
+        ],
+        "/SundarDay4ec2all/sundarvmpublicdns": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarvmpublicdns"
+          }
+        ],
+        "/SundarDay4ec2all/sundarSecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sundarSecurityGroup1DD6DD7A"
+          }
+        ],
+        "/SundarDay4ec2all/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/SundarDay4ec2all/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/SundarDay4ec2all/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "SundarDay4ec2all"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
